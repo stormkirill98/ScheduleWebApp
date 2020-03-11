@@ -1,0 +1,71 @@
+.container {
+  width: 270px;
+  height: 80px;
+  display: flex;
+}
+
+.left-part {
+  width: 30px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.right-part {
+  width:100%;
+  display: inline-flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.number {
+  padding-top: 10px;
+  font-size: 20px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.checkbox {
+  margin-bottom: 10px;
+}
+
+.discipline {
+  width: 100%;
+  height: 27px;
+  font-size: 18px;
+}
+
+.teacher {
+  width: 100%;
+}
+
+.type {
+  width: 140px;
+}
+
+.cabinet {
+  width: 70px;
+}
+
+.item + .item {
+  margin-top: 5px;
+}
+
+.select{
+  width: 120%;
+  background-position:80% center;
+}
+
+.select select{
+  background: transparent;
+  line-height: 1;
+  border: 0;
+  padding: 0;
+  border-radius: 0;
+  width: 120%;
+  position: relative;
+  z-index: 10;
+  font-size: 1em;
+}

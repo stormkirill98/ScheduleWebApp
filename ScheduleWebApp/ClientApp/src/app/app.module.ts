@@ -14,6 +14,7 @@ import { AlertComponent } from './_directives';
 import { AuthGuard } from './_guards';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
+import {EditLessonComponent} from './_components/edit-lesson/edit-lesson.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { RegisterComponent } from './register';
     HomeComponent,
     AlertComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    EditLessonComponent
   ],
   providers: [
     AuthGuard,
