@@ -10,7 +10,6 @@ import { AlertService, AuthenticationService, UserService } from './_services';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { AlertComponent } from './_directives';
 import { AuthGuard } from './_guards';
 import { LoginComponent } from './login';
@@ -27,7 +26,6 @@ import { RegisterComponent } from './register';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    FetchDataComponent,
     AlertComponent,
     LoginComponent,
     RegisterComponent

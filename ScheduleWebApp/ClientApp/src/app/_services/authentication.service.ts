@@ -6,13 +6,14 @@ import {environment} from '../../environments/environment';
 
 @Injectable()
 export class AuthenticationService {
-  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private loggedIn: BehaviorSubject<boolean>;
 
   get isLoggedIn() {
     return this.loggedIn.asObservable();
   }
 
   constructor(private http: HttpClient) {
+    this.loggedIn = new BehaviorSubject<boolean>(!!localStorage.getItem('currentUser'));
   }
 
   login(username: string, password: string) {
