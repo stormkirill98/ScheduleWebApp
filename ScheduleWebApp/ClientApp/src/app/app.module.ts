@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { routing } from './app.routing';
 
@@ -16,13 +16,16 @@ import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 import { EditLessonComponent } from './_components/edit-lesson/edit-lesson.component';
 import { ReadLessonComponent } from './_components/read-lesson/read-lesson.component';
+import { DayComponent } from './_components/day/day.component';
+import { LessonListsService } from './_services/lesson-lists.service';
 
 @NgModule({
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
     ReactiveFormsModule,
     HttpClientModule,
-    routing
+    routing,
+    FormsModule
   ],
   declarations: [
     AppComponent,
@@ -32,13 +35,15 @@ import { ReadLessonComponent } from './_components/read-lesson/read-lesson.compo
     LoginComponent,
     RegisterComponent,
     EditLessonComponent,
-    ReadLessonComponent
+    ReadLessonComponent,
+    DayComponent
   ],
   providers: [
     AuthGuard,
     AlertService,
     AuthenticationService,
     UserService,
+    LessonListsService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ],

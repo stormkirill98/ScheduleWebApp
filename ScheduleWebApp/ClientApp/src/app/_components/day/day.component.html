@@ -1,0 +1,9 @@
+<div class="day-name">
+  {{ day.getName() }}
+</div>
+<div *ngIf="isRead" class="container">
+  <app-read-lesson *ngFor="let i of [0,1,2,3,4]" [lesson]="day.getLesson(i)" number="{{i + 1}}"></app-read-lesson>
+</div>
+<div *ngIf="!isRead" class="container">
+  <app-edit-lesson *ngFor="let i of [0,1,2,3,4]" [lesson]="day.getLesson(i)" number="{{i + 1}}"></app-edit-lesson>
+</div>

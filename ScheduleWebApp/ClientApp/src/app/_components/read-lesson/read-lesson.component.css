@@ -2,6 +2,7 @@
   width: 270px;
   height: 80px;
   display: flex;
+  margin-bottom: 6px;
 }
 
 .left-part {
@@ -40,6 +41,7 @@
 
 .teacher {
   width: 100%;
+  margin-bottom: 2px;
 }
 
 .type {

@@ -11,11 +11,11 @@ export class Lesson {
   teacher: Teacher;
   group: Group;
 
-  constructor(discipline, disciplineType, cabinet, teacher?, group?) {
-    this.discipline = discipline;
-    this.disciplineType = disciplineType;
-    this.cabinet = cabinet;
-    this.teacher = teacher;
-    this.group = group;
+  constructor(discipline?, disciplineType?, cabinet?, teacher?, group?) {
+    this.discipline = discipline || new Discipline(null, null);
+    this.disciplineType = disciplineType || new DisciplineType(null, null);
+    this.cabinet = cabinet || new Cabinet(null, null);
+    this.teacher = teacher || new Teacher(null, null, null, null, null);
+    this.group = group || new Group(null, null);
   }
 }

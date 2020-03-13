@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px;
+  width: 250px;
+}
+
+.day-name {
+  text-align: center;
+  border-bottom: 1px solid;
+  margin-bottom: 10px;
+}
+
+app-read-lesson + app-read-lesson {
+  border-top: 1px solid ;
+  margin-top: 10px;
+}
+
+app-edit-lesson + app-edit-lesson {
+  margin-top: 10px;
+}

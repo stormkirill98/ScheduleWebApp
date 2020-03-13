@@ -1,0 +1,34 @@
+import { Lesson } from './lesson';
+
+export class Day {
+  private readonly number;
+  private readonly lessons: Array<Lesson> = [null, null, null, null, null];
+
+  constructor(number: number) {
+    this.number = number;
+  }
+
+  setLesson(number: number, lesson: Lesson): boolean {
+    if (number >= 5 || number < 0) {
+      return false;
+    }
+
+    this.lessons[number] = lesson;
+  }
+
+  getLesson(number: number): Lesson {
+    return this.lessons[number];
+  }
+
+  getName(): string {
+    switch (this.number) {
+      case 0: return 'Понедельник';
+      case 1: return 'Вторник';
+      case 2: return 'Среда';
+      case 3: return 'Четверг';
+      case 4: return 'Пятница';
+      case 5: return 'Суббота';
+      case 6: return 'Воскресенье';
+    }
+  }
+}

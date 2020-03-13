@@ -1,26 +1,26 @@
 <div class="container">
   <div class="left-part">
     <label class="number">{{ number }}</label>
-    <input type="checkbox" class="checkbox" (click)="clickCheckbox()">
+    <input type="checkbox" class="checkbox" [(ngModel)]="isShow" >
   </div>
   <div class="right-part" *ngIf="isShow">
-    <select class="discipline item">
-      <option *ngFor="let discipline of disciplines" [value]="discipline.id">
+    <select [(ngModel)]="lesson.discipline.id" class="discipline item">
+      <option *ngFor="let discipline of disciplines | async" [ngValue]="discipline.id">
         {{discipline.name}}
       </option>
     </select>
-    <select class="type item">
-      <option *ngFor="let type of disciplineTypes" [value]="type.id">
+    <select [(ngModel)]="lesson.disciplineType.id" class="type item">
+      <option *ngFor="let type of disciplineTypes | async" [ngValue]="type.id">
         {{type.name}}
       </option>
     </select>
-    <select class="cabinet item">
-      <option *ngFor="let cabinet of cabinets" [value]="cabinet.id">
+    <select [(ngModel)]="lesson.cabinet.id"  class="cabinet item">
+      <option *ngFor="let cabinet of cabinets | async" [ngValue]="cabinet.id">
         {{cabinet.number}}
       </option>
     </select>
-    <select class="teacher item">
-      <option *ngFor="let teacher of teachers" [value]="teacher.id">
+    <select [(ngModel)]="lesson.teacher.id"  class="teacher item">
+      <option *ngFor="let teacher of teachers | async" [ngValue]="teacher.id">
         {{teacher.getFullName()}}
       </option>
     </select>
