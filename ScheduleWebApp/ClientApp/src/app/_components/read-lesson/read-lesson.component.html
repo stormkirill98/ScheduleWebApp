@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="left-part">
+    <label class="number">{{ number }}</label>
+    <input [checked]="lesson != null" class="checkbox" disabled type="checkbox">
+  </div>
+  <div *ngIf="lesson != null" class="right-part">
+    <label class="discipline item" title="{{lesson.discipline.name}}">
+      {{ lesson.discipline.name }}
+    </label>
+    <label class="type item" title="{{lesson.disciplineType.name}}">
+      {{ lesson.disciplineType.name }}
+    </label>
+    <label class="cabinet item" title="{{lesson.cabinet.number}}">
+      {{ lesson.cabinet.number }}
+    </label>
+    <label *ngIf="lesson.teacher" class="teacher item" title="{{lesson.teacher.getFullName()}}">
+      {{ lesson.teacher.getFullName() }}
+    </label>
+    <label *ngIf="lesson.group" class="teacher item" title="{{lesson.group.name}}">
+      {{ lesson.group.name }}
+    </label>
+  </div>
+</div>
+

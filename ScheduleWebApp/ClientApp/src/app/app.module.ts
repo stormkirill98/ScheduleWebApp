@@ -14,11 +14,12 @@ import { AlertComponent } from './_directives';
 import { AuthGuard } from './_guards';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
-import {EditLessonComponent} from './_components/edit-lesson/edit-lesson.component';
+import { EditLessonComponent } from './_components/edit-lesson/edit-lesson.component';
+import { ReadLessonComponent } from './_components/read-lesson/read-lesson.component';
 
 @NgModule({
   imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
     ReactiveFormsModule,
     HttpClientModule,
     routing
@@ -30,16 +31,18 @@ import {EditLessonComponent} from './_components/edit-lesson/edit-lesson.compone
     AlertComponent,
     LoginComponent,
     RegisterComponent,
-    EditLessonComponent
+    EditLessonComponent,
+    ReadLessonComponent
   ],
   providers: [
     AuthGuard,
     AlertService,
     AuthenticationService,
     UserService,
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

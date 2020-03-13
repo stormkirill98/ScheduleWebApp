@@ -5,6 +5,7 @@
 }
 
 .left-part {
+  flex-shrink: 0;
   width: 30px;
   display: inline-flex;
   flex-direction: column;
@@ -51,4 +52,11 @@
 
 .item + .item {
   margin-top: 5px;
+}
+
+.item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 0;
 }
