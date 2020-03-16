@@ -1,5 +1,5 @@
-.container {
-  width: 270px;
+.edit-lesson-container {
+  width: 240px;
   height: 80px;
   display: flex;
   margin-bottom: 6px;
@@ -43,11 +43,11 @@
 }
 
 .type {
-  width: 140px;
+  width: 100px;
 }
 
 .cabinet {
-  width: 70px;
+  width: 50px;
 }
 
 .item + .item {

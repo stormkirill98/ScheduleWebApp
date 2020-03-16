@@ -12,10 +12,8 @@ import { Lesson } from '../../_models/lesson';
   styleUrls: ['./edit-lesson.component.css']
 })
 export class EditLessonComponent implements OnInit{
-  @Input()
-  private number: number;
-  @Input()
-  private lesson: Lesson;
+  @Input() number: number;
+  @Input() lesson: Lesson;
 
   private isShow: boolean;
   private disciplines: Observable<Array<Discipline>>;

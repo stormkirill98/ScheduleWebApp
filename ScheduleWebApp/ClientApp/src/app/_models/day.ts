@@ -1,5 +1,7 @@
 import { Lesson } from './lesson';
 
+const COUNT_LESSONS = 5;
+
 export class Day {
   private readonly number;
   private readonly lessons: Array<Lesson> = [null, null, null, null, null];
@@ -9,11 +11,12 @@ export class Day {
   }
 
   setLesson(number: number, lesson: Lesson): boolean {
-    if (number >= 5 || number < 0) {
+    if (number >= COUNT_LESSONS || number < 0) {
       return false;
     }
 
     this.lessons[number] = lesson;
+    return true;
   }
 
   getLesson(number: number): Lesson {

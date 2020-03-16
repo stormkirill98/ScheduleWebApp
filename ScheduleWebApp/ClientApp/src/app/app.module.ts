@@ -17,6 +17,7 @@ import { RegisterComponent } from './register';
 import { EditLessonComponent } from './_components/edit-lesson/edit-lesson.component';
 import { ReadLessonComponent } from './_components/read-lesson/read-lesson.component';
 import { DayComponent } from './_components/day/day.component';
+import { WeekComponent } from './_components/week/week.component';
 import { LessonListsService } from './_services/lesson-lists.service';
 
 @NgModule({
@@ -36,7 +37,8 @@ import { LessonListsService } from './_services/lesson-lists.service';
     RegisterComponent,
     EditLessonComponent,
     ReadLessonComponent,
-    DayComponent
+    DayComponent,
+    WeekComponent
   ],
   providers: [
     AuthGuard,
