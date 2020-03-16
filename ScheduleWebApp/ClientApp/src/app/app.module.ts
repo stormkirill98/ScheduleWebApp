@@ -4,21 +4,26 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { routing } from './app.routing';
 
+// services
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+import { AuthGuard } from './_guards';
 import { AlertService, AuthenticationService, UserService } from './_services';
+import { LessonListsService } from './_services';
 
+// components
+import { EditLessonComponent } from './_components';
+import { ReadLessonComponent } from './_components';
+import { DayComponent } from './_components';
+import { WeekComponent } from './_components';
+
+// pages
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home';
 import { AlertComponent } from './_directives';
-import { AuthGuard } from './_guards';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
-import { EditLessonComponent } from './_components/edit-lesson/edit-lesson.component';
-import { ReadLessonComponent } from './_components/read-lesson/read-lesson.component';
-import { DayComponent } from './_components/day/day.component';
-import { WeekComponent } from './_components/week/week.component';
-import { LessonListsService } from './_services/lesson-lists.service';
+import { DirectorComponent } from './director/director.component';
 
 @NgModule({
   imports: [
@@ -35,6 +40,7 @@ import { LessonListsService } from './_services/lesson-lists.service';
     AlertComponent,
     LoginComponent,
     RegisterComponent,
+    DirectorComponent,
     EditLessonComponent,
     ReadLessonComponent,
     DayComponent,

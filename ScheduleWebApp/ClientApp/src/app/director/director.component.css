@@ -1,0 +1,33 @@
+.director-container {
+  margin: 10px 10px 0 10px;
+}
+
+.head-buttons {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.left-head {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 400px;
+}
+
+.right-head {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 420px;
+}
+
+#study-group {
+  width: 100px;
+  margin-left: 10px;
+}
+
+#parity-week {
+  margin-left: 10px;
+  position: relative;
+  top: 2px;
+}

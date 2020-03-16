@@ -1,0 +1,20 @@
+<div class="director-container">
+  <div class="head-buttons">
+    <div class="left-head">
+      <div>
+        <label for="study-group">Учебная группа:</label>
+        <select id="study-group"></select>
+      </div>
+      <div>
+        <label for="parity-week">Четная неделя</label>
+        <input type="checkbox" id="parity-week" [(ngModel)]="isParity" >
+      </div>
+    </div>
+    <div class="right-head">
+      <button (click)="openGroupCreating()">Новая группа</button>
+      <button (click)="openTeacherCreating()">Новый учитель</button>
+      <button (click)="openDisciplineCreating()">Новая дисциплина</button>
+    </div>
+  </div>
+  <app-week isRead="{{false}}" [week]="week"></app-week>
+</div>
