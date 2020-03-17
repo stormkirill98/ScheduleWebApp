@@ -14,6 +14,5 @@ export class WeekComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('print');
   }
 }

@@ -42,7 +42,14 @@ export class DirectorComponent implements OnInit {
   }
 
   openGroupCreating() {
-    this.dialog.open(NewGroupComponent);
+    const dialogRef = this.dialog.open(NewGroupComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (!result || !result.group) { return; }
+
+      console.log('Group name: ' + result.group.name);
+      // TODO send group to server, add to list
+    });
   }
 
   openTeacherCreating() {

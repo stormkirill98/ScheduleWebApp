@@ -14,10 +14,8 @@ export class DayComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    console.log('print' + this.isRead);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('print');
   }
 }
