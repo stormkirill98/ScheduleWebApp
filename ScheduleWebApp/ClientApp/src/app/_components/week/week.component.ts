@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core';
-import { Week } from '../../_models/week';
+import { Week } from '../../_models';
 
 @Component({
   selector: 'app-week',

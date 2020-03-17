@@ -27,6 +27,8 @@ import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 import { DirectorComponent } from './director/director.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   imports: [
@@ -35,7 +37,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     routing,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   declarations: [
     AppComponent,

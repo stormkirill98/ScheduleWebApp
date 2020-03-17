@@ -1,17 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { LessonListsService } from '../../_services/lesson-lists.service';
+import { LessonListsService } from '../../_services';
 import { Observable } from 'rxjs';
 
-import { Cabinet, Discipline, DisciplineType, Teacher } from '../../_models';
-import { Lesson } from '../../_models/lesson';
+import { Cabinet, Discipline, DisciplineType, Lesson, Teacher } from '../../_models';
 
 @Component({
   selector: 'app-edit-lesson',
   templateUrl: './edit-lesson.component.html',
   styleUrls: ['./edit-lesson.component.css']
 })
-export class EditLessonComponent implements OnInit{
+export class EditLessonComponent implements OnInit {
   @Input() number: number;
   @Input() lesson: Lesson;
 

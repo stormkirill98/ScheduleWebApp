@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Day } from '../../_models/day';
+import { Day } from '../../_models';
 
 @Component({
   selector: 'app-day',

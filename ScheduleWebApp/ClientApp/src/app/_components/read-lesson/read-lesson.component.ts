@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Lesson } from '../../_models/lesson';
+import { Lesson } from '../../_models';
 
 @Component({
   selector: ' app-read-lesson',

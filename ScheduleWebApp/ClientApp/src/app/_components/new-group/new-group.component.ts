@@ -12,7 +12,7 @@ export class NewGroupComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<NewGroupComponent>,
     @Inject(MAT_DIALOG_DATA) public group: Group
-  ) {}
+  ) { }
 
   ngOnInit() {
   }
