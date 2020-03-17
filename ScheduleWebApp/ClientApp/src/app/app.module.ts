@@ -2,28 +2,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { routing } from './app.routing';
 
 // services
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AuthGuard } from './_guards';
 import { AlertService, AuthenticationService, UserService } from './_services';
 import { LessonListsService } from './_services';
+import { routing } from './app.routing';
 
 // components
 import { EditLessonComponent } from './_components';
 import { ReadLessonComponent } from './_components';
 import { DayComponent } from './_components';
 import { WeekComponent } from './_components';
+import { NewGroupComponent } from './_components';
 
-// pages
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
+
+// pages
 import { HomeComponent } from './home';
 import { AlertComponent } from './_directives';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 import { DirectorComponent } from './director/director.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -31,20 +34,24 @@ import { DirectorComponent } from './director/director.component';
     ReactiveFormsModule,
     HttpClientModule,
     routing,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,
     NavMenuComponent,
+    // pages
     HomeComponent,
     AlertComponent,
     LoginComponent,
     RegisterComponent,
     DirectorComponent,
+    // components
     EditLessonComponent,
     ReadLessonComponent,
     DayComponent,
-    WeekComponent
+    WeekComponent,
+    NewGroupComponent
   ],
   providers: [
     AuthGuard,

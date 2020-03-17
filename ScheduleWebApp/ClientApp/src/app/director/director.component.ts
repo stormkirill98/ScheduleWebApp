@@ -3,6 +3,8 @@ import { Week } from '../_models/week';
 import { Day } from '../_models/day';
 import { Lesson } from '../_models/lesson';
 import { Cabinet, Discipline, DisciplineType, Teacher } from '../_models';
+import { NewGroupComponent } from '../_components';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-director',
@@ -13,7 +15,7 @@ export class DirectorComponent implements OnInit {
   private week = new Week();
   private isParity = false;
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
     const day = new Day(1);
 
     day.setLesson(2,
@@ -43,7 +45,7 @@ export class DirectorComponent implements OnInit {
   }
 
   openGroupCreating() {
-
+    this.dialog.open(NewGroupComponent);
   }
 
   openTeacherCreating() {

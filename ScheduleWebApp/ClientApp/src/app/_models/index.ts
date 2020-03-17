@@ -3,3 +3,7 @@ export {Discipline} from './discipline';
 export {DisciplineType} from './discipline-type';
 export {Teacher} from './teacher';
 export {Cabinet} from './cabinet';
+export {Group} from './group';
+export {Week} from './week';
+export {Day} from './day';
+export {Lesson} from './lesson';
