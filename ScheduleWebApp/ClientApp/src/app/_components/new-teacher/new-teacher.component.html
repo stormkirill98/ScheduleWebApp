@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Добавить учителя</h1>
+<div mat-dialog-content class="dialog-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Фамилия</mat-label>
+    <input matInput placeholder="Введите фамилию" [formControl]="lastName" required>
+    <mat-error *ngIf="lastName.invalid">Введите фамилию</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Имя</mat-label>
+    <input matInput placeholder="Введите имя" [formControl]="firstName" required>
+    <mat-error *ngIf="firstName.invalid">Введите имя</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Отчество</mat-label>
+    <input matInput placeholder="Введите отчество" [formControl]="patronymic" required>
+    <mat-error *ngIf="patronymic.invalid">Введите отчество</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Кафедра</mat-label>
+    <input matInput placeholder="Введите кафедру" [formControl]="cathedra" required>
+    <mat-error *ngIf="cathedra.invalid">Введите кафедру</mat-error>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Отмена</button>
+  <button mat-button (click)="onCreate()">Создать</button>
+</div>

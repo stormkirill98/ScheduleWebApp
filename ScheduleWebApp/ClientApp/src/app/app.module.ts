@@ -16,6 +16,7 @@ import { ReadLessonComponent } from './_components';
 import { DayComponent } from './_components';
 import { WeekComponent } from './_components';
 import { NewGroupComponent } from './_components';
+import { NewTeacherComponent } from './_components';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -57,7 +58,8 @@ import { MatInputModule } from '@angular/material/input';
     ReadLessonComponent,
     DayComponent,
     WeekComponent,
-    NewGroupComponent
+    NewGroupComponent,
+    NewTeacherComponent
   ],
   providers: [
     AuthGuard,

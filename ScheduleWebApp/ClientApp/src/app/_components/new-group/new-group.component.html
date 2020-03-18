@@ -1,10 +1,9 @@
-<h1 mat-dialog-title>Новая группа</h1>
+<h1 mat-dialog-title>Добавить группу</h1>
 <div mat-dialog-content>
-
   <mat-form-field appearance="fill">
     <mat-label>Имя</mat-label>
-    <input matInput placeholder="Введите имя" [formControl]="nameInput" required>
-    <mat-error *ngIf="nameInput.invalid">Введите имя</mat-error>
+    <input matInput placeholder="Введите имя" [formControl]="name" required>
+    <mat-error *ngIf="name.invalid">Введите название</mat-error>
   </mat-form-field>
 </div>
 <div mat-dialog-actions>

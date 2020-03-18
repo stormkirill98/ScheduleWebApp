@@ -68,11 +68,18 @@ export class ListsService {
     ]);
   }
 
-  addGroup(group: Group): void {
+  addGroup(group: Group) {
     // TODO save group on server, get it and add to list
     const oldList = this.groups.value;
     oldList.push(group);
     this.groups.next(oldList);
+  }
+
+  addTeacher(teacher: Teacher) {
+    // TODO save group on server, get it and add to list
+    const oldList = this.teachers.value;
+    oldList.push(teacher);
+    this.teachers.next(oldList);
   }
 
   private fetchData() {

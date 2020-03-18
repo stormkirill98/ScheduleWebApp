@@ -9,12 +9,10 @@ import { Group } from '../../_models';
   styleUrls: ['./new-group.component.css']
 })
 export class NewGroupComponent implements OnInit {
-  private nameInput: FormControl;
+  private name: FormControl;
 
-  constructor(
-    public dialogRef: MatDialogRef<NewGroupComponent>
-  ) {
-    this.nameInput = new FormControl();
+  constructor(public dialogRef: MatDialogRef<NewGroupComponent>) {
+    this.name = new FormControl();
   }
 
   ngOnInit() {
@@ -25,10 +23,10 @@ export class NewGroupComponent implements OnInit {
   }
 
   onCreate() {
-    if (!this.nameInput.valid) { return; }
+    if (!this.name.valid) { return; }
 
     this.dialogRef.close({
-      group: new Group(null, this.nameInput.value)
+      group: new Group(null, this.name.value)
     });
   }
 }
