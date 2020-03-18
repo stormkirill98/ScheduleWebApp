@@ -76,10 +76,17 @@ export class ListsService {
   }
 
   addTeacher(teacher: Teacher) {
-    // TODO save group on server, get it and add to list
+    // TODO save teacher on server, get it and add to list
     const oldList = this.teachers.value;
     oldList.push(teacher);
     this.teachers.next(oldList);
+  }
+
+  addDiscipline(discipline: Discipline) {
+    // TODO save discipline on server, get it and add to list
+    const oldList = this.disciplines.value;
+    oldList.push(discipline);
+    this.disciplines.next(oldList);
   }
 
   private fetchData() {

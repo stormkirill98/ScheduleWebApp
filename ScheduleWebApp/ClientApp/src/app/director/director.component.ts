@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cabinet, Day, Discipline, DisciplineType, Group, Lesson, Teacher, Week } from '../_models';
-import { NewGroupComponent, NewTeacherComponent } from '../_components';
+import { NewDisciplineComponent, NewGroupComponent, NewTeacherComponent } from '../_components';
 import { MatDialog } from '@angular/material/dialog';
 import { ListsService } from '../_services';
 import { Observable } from 'rxjs';
@@ -68,6 +68,12 @@ export class DirectorComponent implements OnInit {
   }
 
   openDisciplineCreating() {
+    const dialogRef = this.dialog.open(NewDisciplineComponent);
 
+    dialogRef.afterClosed().subscribe(result => {
+      if (!result || !result.discipline) { return; }
+
+      this.listsService.addDiscipline(result.discipline);
+    });
   }
 }
