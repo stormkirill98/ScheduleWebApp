@@ -3,7 +3,11 @@
     <div class="left-head">
       <div>
         <label for="study-group">Учебная группа:</label>
-        <select id="study-group"></select>
+        <select [(ngModel)]="selectedId" id="study-group">
+          <option *ngFor="let group of groups | async" [ngValue]="group.id">
+            {{group.name}}
+          </option>
+        </select>
       </div>
       <div>
         <label for="parity-week">Четная неделя</label>

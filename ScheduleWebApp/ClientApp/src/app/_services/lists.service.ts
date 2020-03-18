@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class ListsService {
   private disciplines: BehaviorSubject<Array<Discipline>> = new BehaviorSubject<Array<Discipline>>(new Array<Discipline>());
   private disciplineTypes: BehaviorSubject<Array<DisciplineType>> = new BehaviorSubject<Array<DisciplineType>>(new Array<DisciplineType>());
   private cabinets: BehaviorSubject<Array<Cabinet>> = new BehaviorSubject<Array<Cabinet>>(new Array<Cabinet>());
@@ -58,6 +58,21 @@ export class DataService {
       new Teacher(3, 'Короткин', 'Алексей', 'Алексеевич', 'Дискретной математики'),
       new Teacher(4, 'Галина', 'Владимировна', 'Шабаршина', 'Дискретной математики')
     ]);
+
+    this.groups.next([
+      new Group(1, 'ИВТ-41БО'),
+      new Group(2, 'ИВТ-42БО'),
+      new Group(3, 'ИВТ-11БО'),
+      new Group(4, 'ИВТ-21БО'),
+      new Group(5, 'ИВТ-31БО')
+    ]);
+  }
+
+  addGroup(group: Group): void {
+    // TODO save group on server, get it and add to list
+    const oldList = this.groups.value;
+    oldList.push(group);
+    this.groups.next(oldList);
   }
 
   private fetchData() {

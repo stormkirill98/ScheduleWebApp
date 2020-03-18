@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Cabinet, Day, Discipline, DisciplineType, Lesson, Teacher, Week } from '../_models';
+import { Cabinet, Day, Discipline, DisciplineType, Group, Lesson, Teacher, Week } from '../_models';
 import { NewGroupComponent } from '../_components';
 import { MatDialog } from '@angular/material/dialog';
+import { ListsService } from '../_services';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-director',
@@ -11,8 +13,10 @@ import { MatDialog } from '@angular/material/dialog';
 export class DirectorComponent implements OnInit {
   private week = new Week();
   private isParity = false;
+  private groups: Observable<Array<Group>>;
+  private selectedId = 1;
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private listsService: ListsService) {
     const day = new Day(1);
 
     day.setLesson(2,
@@ -35,6 +39,8 @@ export class DirectorComponent implements OnInit {
     );
 
     this.week.setDay(1, day);
+
+    this.groups = listsService.getGroups;
   }
 
   ngOnInit() {
@@ -47,8 +53,7 @@ export class DirectorComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (!result || !result.group) { return; }
 
-      console.log('Group name: ' + result.group.name);
-      // TODO send group to server, add to list
+      this.listsService.addGroup(result.group);
     });
   }
 
