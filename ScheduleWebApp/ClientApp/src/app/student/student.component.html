@@ -1,0 +1,18 @@
+<div class="page-container">
+  <div class="head">
+    <div>
+      <label for="group">Группа:</label>
+      <select id="group" [(ngModel)]="selectedId" (change)="onChangeGroup($event)">
+        <option *ngFor="let group of groups | async" [ngValue]="group.id">
+          {{group.name}}
+        </option>
+      </select>
+    </div>
+    <div>
+      <mat-checkbox class="parity-week" [(ngModel)]="isParity" (change)="onChangeParity($event)">
+        Четная неделя
+      </mat-checkbox>
+    </div>
+  </div>
+  <app-week isRead="{{true}}" [week]="week"></app-week>
+</div>

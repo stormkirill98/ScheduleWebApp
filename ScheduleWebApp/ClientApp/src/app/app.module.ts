@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 // services
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
@@ -33,7 +34,7 @@ import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 import { DirectorComponent } from './director/director.component';
 import { TeacherComponent } from './teacher/teacher.component';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import { StudentComponent } from './student/student.component';
 
 @NgModule({
   imports: [
@@ -58,6 +59,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     RegisterComponent,
     DirectorComponent,
     TeacherComponent,
+    StudentComponent,
     // components
     EditLessonComponent,
     ReadLessonComponent,

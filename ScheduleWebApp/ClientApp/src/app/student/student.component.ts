@@ -1,32 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { Teacher, Week } from '../_models';
+import { Group, Week } from '../_models';
 import { Observable } from 'rxjs';
-import { ListsService } from '../_services';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+import { ListsService } from '../_services';
 
 @Component({
-  selector: 'app-teacher',
-  templateUrl: './teacher.component.html',
-  styleUrls: ['./teacher.component.css']
+  selector: 'app-student',
+  templateUrl: './student.component.html',
+  styleUrls: ['./student.component.css']
 })
-export class TeacherComponent implements OnInit {
+export class StudentComponent implements OnInit {
   private week = new Week();
   private isParity = false;
-  private teachers: Observable<Array<Teacher>>;
+  private groups: Observable<Array<Group>>;
   private selectedId = 1;
 
   constructor(private listsService: ListsService) {
-    this.teachers = listsService.getTeachers();
+    this.groups = listsService.getGroups();
   }
 
   ngOnInit(): void {
+    // TODO load week
   }
 
   onChangeParity(event: MatCheckboxChange) {
     // TODO update week
   }
 
-  onChangeTeacher(event: Event) {
+  onChangeGroup(event: Event) {
     // TODO update week
   }
 }
