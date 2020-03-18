@@ -7,7 +7,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AuthGuard } from './_guards';
 import { AlertService, AuthenticationService, UserService } from './_services';
-import { LessonListsService } from './_services';
+import { DataService } from './_services';
 import { routing } from './app.routing';
 
 // components
@@ -64,7 +64,7 @@ import { MatInputModule } from '@angular/material/input';
     AlertService,
     AuthenticationService,
     UserService,
-    LessonListsService,
+    DataService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ],

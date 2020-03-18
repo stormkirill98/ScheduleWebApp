@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { LessonListsService } from '../../_services';
+import { DataService } from '../../_services';
 import { Observable } from 'rxjs';
 
 import { Cabinet, Discipline, DisciplineType, Lesson, Teacher } from '../../_models';
@@ -20,7 +20,7 @@ export class EditLessonComponent implements OnInit {
   private cabinets: Observable<Array<Cabinet>>;
   private teachers: Observable<Array<Teacher>>;
 
-  constructor(private lessonListsService: LessonListsService) {
+  constructor(private lessonListsService: DataService) {
     this.disciplines = lessonListsService.getDisciplines;
     this.disciplineTypes = lessonListsService.getDisciplineTypes;
     this.cabinets = lessonListsService.getCabinets;
