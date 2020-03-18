@@ -3,7 +3,7 @@
     <div class="left-head">
       <div>
         <label for="study-group">Учебная группа:</label>
-        <select [(ngModel)]="selectedId" id="study-group">
+        <select id="study-group" [(ngModel)]="selectedId" (change)="onChangeGroup($event)">
           <option *ngFor="let group of groups | async" [ngValue]="group.id">
             {{group.name}}
           </option>
@@ -11,7 +11,7 @@
       </div>
       <div>
         <label for="parity-week">Четная неделя</label>
-        <input type="checkbox" class="parity-week" id="parity-week" [(ngModel)]="isParity" >
+        <input type="checkbox" class="parity-week" id="parity-week" [(ngModel)]="isParity" (change)="onChangeParity($event)">
       </div>
     </div>
     <div class="right-head">

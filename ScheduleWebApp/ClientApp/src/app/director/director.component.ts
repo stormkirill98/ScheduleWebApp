@@ -76,4 +76,12 @@ export class DirectorComponent implements OnInit {
       this.listsService.addDiscipline(result.discipline);
     });
   }
+
+  onChangeParity(event: Event) {
+    // TODO update week
+  }
+
+  onChangeGroup(event: Event) {
+    // TODO update week
+  }
 }

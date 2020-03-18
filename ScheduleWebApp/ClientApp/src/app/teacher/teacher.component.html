@@ -2,15 +2,17 @@
   <div class="head">
     <div>
       <label for="teacher">Преподаватель:</label>
-      <select [(ngModel)]="selectedId" id="teacher" >
+      <select id="teacher" [(ngModel)]="selectedId" (change)="onChangeTeacher($event)">
         <option *ngFor="let teacher of teachers | async" [ngValue]="teacher.id">
           {{teacher.getFullName()}}
         </option>
       </select>
     </div>
     <div>
-      <mat-checkbox class="parity-week" [(ngModel)]="isParity">Четная неделя</mat-checkbox>
+      <mat-checkbox class="parity-week" [(ngModel)]="isParity" (change)="onChangeParity($event)">
+        Четная неделя
+      </mat-checkbox>
     </div>
   </div>
-  <app-week isRead="{{false}}" [week]="week"></app-week>
+  <app-week isRead="{{true}}" [week]="week"></app-week>
 </div>

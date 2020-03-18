@@ -21,4 +21,11 @@ export class TeacherComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onChangeParity(event: Event) {
+    // TODO update week
+  }
+
+  onChangeTeacher(event: Event) {
+    // TODO update week
+  }
 }
