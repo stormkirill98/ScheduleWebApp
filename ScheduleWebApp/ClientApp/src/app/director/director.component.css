@@ -1,7 +1,3 @@
-.director-container {
-  margin: 10px 10px 0 10px;
-}
-
 .head-buttons {
   width: 100%;
   display: inline-flex;
@@ -24,10 +20,4 @@
 #study-group {
   width: 100px;
   margin-left: 10px;
-}
-
-#parity-week {
-  margin-left: 10px;
-  position: relative;
-  top: 2px;
 }

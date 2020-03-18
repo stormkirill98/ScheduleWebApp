@@ -21,10 +21,10 @@ export class EditLessonComponent implements OnInit {
   private teachers: Observable<Array<Teacher>>;
 
   constructor(private listsService: ListsService) {
-    this.disciplines = listsService.getDisciplines;
-    this.disciplineTypes = listsService.getDisciplineTypes;
-    this.cabinets = listsService.getCabinets;
-    this.teachers = listsService.getTeachers;
+    this.disciplines = listsService.getDisciplines();
+    this.disciplineTypes = listsService.getDisciplineTypes();
+    this.cabinets = listsService.getCabinets();
+    this.teachers = listsService.getTeachers();
   }
 
   ngOnInit(): void {

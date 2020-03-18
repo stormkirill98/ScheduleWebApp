@@ -2,3 +2,13 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.page-container {
+  margin: 10px 10px 0 10px;
+}
+
+.parity-week {
+  margin-left: 10px;
+  position: relative;
+  top: 2px;
+}

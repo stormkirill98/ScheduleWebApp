@@ -2,6 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 // services
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
@@ -28,10 +32,8 @@ import { AlertComponent } from './_directives';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 import { DirectorComponent } from './director/director.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
+import { TeacherComponent } from './teacher/teacher.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   imports: [
@@ -43,7 +45,8 @@ import { MatInputModule } from '@angular/material/input';
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatCheckboxModule
   ],
   declarations: [
     AppComponent,
@@ -54,6 +57,7 @@ import { MatInputModule } from '@angular/material/input';
     LoginComponent,
     RegisterComponent,
     DirectorComponent,
+    TeacherComponent,
     // components
     EditLessonComponent,
     ReadLessonComponent,

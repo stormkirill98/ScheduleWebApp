@@ -12,23 +12,23 @@ export class ListsService {
   private teachers: BehaviorSubject<Array<Teacher>> = new BehaviorSubject<Array<Teacher>>(new Array<Teacher>());
   private groups: BehaviorSubject<Array<Group>> = new BehaviorSubject<Array<Group>>(new Array<Group>());
 
-  get getDisciplines() {
+  getDisciplines() {
     return this.disciplines.asObservable();
   }
 
-  get getDisciplineTypes() {
+  getDisciplineTypes() {
     return this.disciplineTypes.asObservable();
   }
 
-  get getCabinets() {
+  getCabinets() {
     return this.cabinets.asObservable();
   }
 
-  get getTeachers() {
+  getTeachers() {
     return this.teachers.asObservable();
   }
 
-  get getGroups() {
+  getGroups() {
     return this.groups.asObservable();
   }
 

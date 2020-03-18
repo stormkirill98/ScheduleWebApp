@@ -1,0 +1,16 @@
+<div class="page-container">
+  <div class="head">
+    <div>
+      <label for="teacher">Преподаватель:</label>
+      <select [(ngModel)]="selectedId" id="teacher" >
+        <option *ngFor="let teacher of teachers | async" [ngValue]="teacher.id">
+          {{teacher.getFullName()}}
+        </option>
+      </select>
+    </div>
+    <div>
+      <mat-checkbox class="parity-week" [(ngModel)]="isParity">Четная неделя</mat-checkbox>
+    </div>
+  </div>
+  <app-week isRead="{{false}}" [week]="week"></app-week>
+</div>

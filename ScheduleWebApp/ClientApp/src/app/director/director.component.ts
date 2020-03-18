@@ -40,7 +40,7 @@ export class DirectorComponent implements OnInit {
 
     this.week.setDay(1, day);
 
-    this.groups = listsService.getGroups;
+    this.groups = listsService.getGroups();
   }
 
   ngOnInit() {

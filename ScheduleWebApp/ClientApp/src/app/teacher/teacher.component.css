@@ -1,0 +1,8 @@
+.head {
+  display: inline-flex;
+}
+
+#teacher {
+  margin-left: 10px;
+  margin-right: 20px;
+}
