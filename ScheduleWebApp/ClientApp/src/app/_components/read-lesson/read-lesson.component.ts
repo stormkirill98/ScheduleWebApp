@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Lesson } from '../../_models';
+import { DataService } from '../../_services/data.service';
+
+type Type = 'student' | 'teacher';
 
 @Component({
   selector: ' app-read-lesson',
@@ -7,6 +10,12 @@ import { Lesson } from '../../_models';
   styleUrls: ['./read-lesson.component.css']
 })
 export class ReadLessonComponent {
-  @Input() number: number;
+  @Input() number: Type;
   @Input() lesson: Lesson;
+
+  private type: string;
+
+  constructor(private dataService: DataService) {
+    this.type = dataService.getTargetWeek();
+  }
 }

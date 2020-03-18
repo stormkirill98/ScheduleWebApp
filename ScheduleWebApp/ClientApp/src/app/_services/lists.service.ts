@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Cabinet, Discipline, DisciplineType, Group, Teacher } from '../_models';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,23 +12,23 @@ export class ListsService {
   private teachers: BehaviorSubject<Array<Teacher>> = new BehaviorSubject<Array<Teacher>>(new Array<Teacher>());
   private groups: BehaviorSubject<Array<Group>> = new BehaviorSubject<Array<Group>>(new Array<Group>());
 
-  getDisciplines() {
+  getDisciplines(): Observable<Array<Discipline>> {
     return this.disciplines.asObservable();
   }
 
-  getDisciplineTypes() {
+  getDisciplineTypes(): Observable<Array<DisciplineType>> {
     return this.disciplineTypes.asObservable();
   }
 
-  getCabinets() {
+  getCabinets(): Observable<Array<Cabinet>> {
     return this.cabinets.asObservable();
   }
 
-  getTeachers() {
+  getTeachers(): Observable<Array<Teacher>> {
     return this.teachers.asObservable();
   }
 
-  getGroups() {
+  getGroups(): Observable<Array<Group>> {
     return this.groups.asObservable();
   }
 

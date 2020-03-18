@@ -3,6 +3,7 @@ import { Group, Week } from '../_models';
 import { Observable } from 'rxjs';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { ListsService } from '../_services';
+import { DataService } from '../_services/data.service';
 
 @Component({
   selector: 'app-student',
@@ -10,13 +11,17 @@ import { ListsService } from '../_services';
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
-  private week = new Week();
+  private week: Observable<Week>;
   private isParity = false;
   private groups: Observable<Array<Group>>;
   private selectedId = 1;
 
-  constructor(private listsService: ListsService) {
+  constructor(
+    private listsService: ListsService,
+    private dataService: DataService
+  ) {
     this.groups = listsService.getGroups();
+    this.week = dataService.getWeek();
   }
 
   ngOnInit(): void {

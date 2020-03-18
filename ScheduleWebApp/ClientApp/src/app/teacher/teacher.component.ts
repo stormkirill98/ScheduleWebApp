@@ -3,6 +3,7 @@ import { Teacher, Week } from '../_models';
 import { Observable } from 'rxjs';
 import { ListsService } from '../_services';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+import { DataService } from '../_services/data.service';
 
 @Component({
   selector: 'app-teacher',
@@ -10,13 +11,17 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
   styleUrls: ['./teacher.component.css']
 })
 export class TeacherComponent implements OnInit {
-  private week = new Week();
+  private week: Observable<Week>;
   private isParity = false;
   private teachers: Observable<Array<Teacher>>;
   private selectedId = 1;
 
-  constructor(private listsService: ListsService) {
+  constructor(
+    private listsService: ListsService,
+    private dataService: DataService
+  ) {
     this.teachers = listsService.getTeachers();
+    this.week = dataService.getWeek();
   }
 
   ngOnInit(): void {

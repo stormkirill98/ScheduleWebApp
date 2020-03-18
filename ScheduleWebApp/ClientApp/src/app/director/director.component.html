@@ -20,5 +20,5 @@
       <button (click)="openDisciplineCreating()">Новая дисциплина</button>
     </div>
   </div>
-  <app-week isRead="{{false}}" [week]="week"></app-week>
+  <app-week isRead="{{false}}" [week]="week | async"></app-week>
 </div>
