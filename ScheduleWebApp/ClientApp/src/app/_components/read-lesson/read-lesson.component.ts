@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Lesson } from '../../_models';
 import { DataService } from '../../_services/data.service';
 
-type Type = 'student' | 'teacher';
+type Type = 'student' | 'teacher'; // TODO duplicate of govnokod
 
 @Component({
   selector: ' app-read-lesson',

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Cabinet, Day, Discipline, DisciplineType, Group, Lesson, Teacher, Week } from '../_models';
 
-type Target = 'student' | 'teacher';
+type Target = 'student' | 'teacher'; // TODO govnokod
 
 @Injectable({
   providedIn: 'root'

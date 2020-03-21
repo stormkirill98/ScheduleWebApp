@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using ScheduleWebApp.Helpers;
 using ScheduleWebApp.Services;
+using System;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -30,7 +31,7 @@ namespace ScheduleWebApp
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddCors();
-            services.AddDbContext<DataContext>(x => x.UseInMemoryDatabase("TestDb"));
+            services.AddDbContext<DataContext>(x => x.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=localdb;Integrated Security=True;Pooling=False"));
             services.AddAutoMapper();
 
             // configure strongly typed settings objects
@@ -45,7 +46,7 @@ namespace ScheduleWebApp
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-            .AddJwtBearer(x =>
+                .AddJwtBearer(x =>
             {
                 x.Events = new JwtBearerEvents
                 {
@@ -124,6 +125,7 @@ namespace ScheduleWebApp
 
                 if (env.IsDevelopment())
                 {
+                    spa.Options.StartupTimeout = new TimeSpan(0, 0, 120); // 120 seconds
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
