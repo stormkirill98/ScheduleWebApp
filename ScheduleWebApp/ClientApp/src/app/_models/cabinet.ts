@@ -1,9 +1,9 @@
 export class Cabinet {
-  id: number;
+  key: number;
   number: number;
 
-  constructor(id, number) {
-    this.id = id;
+  constructor(key, number) {
+    this.key = key;
     this.number = number;
   }
 }

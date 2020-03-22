@@ -15,5 +15,6 @@ namespace ScheduleWebApp.Helpers
         public DbSet<Cabinet> Cabinet { get; set; }
         public DbSet<Teacher> Teacher { get; set; }
         public DbSet<StudyGroup> StudyGroup { get; set; }
+        public DbSet<Schedule> Schedule { get; set; }
     }
 }

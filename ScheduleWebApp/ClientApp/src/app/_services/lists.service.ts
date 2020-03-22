@@ -16,6 +16,9 @@ export class ListsService {
   private teachers: BehaviorSubject<Array<Teacher>> = new BehaviorSubject<Array<Teacher>>(new Array<Teacher>());
   private groups: BehaviorSubject<Array<Group>> = new BehaviorSubject<Array<Group>>(new Array<Group>());
 
+  constructor(private http: HttpClient) {
+  }
+
   getDisciplines(): Observable<Array<Discipline>> {
     return this.disciplines.asObservable();
   }
@@ -34,9 +37,6 @@ export class ListsService {
 
   getGroups(): Observable<Array<Group>> {
     return this.groups.asObservable();
-  }
-
-  constructor(private http: HttpClient) {
   }
 
   addGroup(group: Group) {

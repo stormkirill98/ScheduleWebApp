@@ -3,8 +3,8 @@
     <div class="left-head">
       <div>
         <label for="study-group">Учебная группа:</label>
-        <select id="study-group" [(ngModel)]="selectedId" (change)="onChangeGroup($event)">
-          <option *ngFor="let group of groups | async" [ngValue]="group.id">
+        <select id="study-group" [(ngModel)]="selectedGroup" (change)="onChangeGroup($event)">
+          <option *ngFor="let group of groups | async" [ngValue]="group">
             {{group.name}}
           </option>
         </select>
@@ -18,7 +18,8 @@
       <button (click)="openGroupCreating()">Новая группа</button>
       <button (click)="openTeacherCreating()">Новый учитель</button>
       <button (click)="openDisciplineCreating()">Новая дисциплина</button>
+      <button (click)="saveSchedule()">Сохранить расписание</button>
     </div>
   </div>
-  <app-week isRead="{{false}}" [week]="week | async"></app-week>
+  <app-week isRead="{{false}}" [week]="week | async" ></app-week>
 </div>

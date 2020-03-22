@@ -50,6 +50,7 @@
     <Compile Include="Entities\Lesson.cs" />
     <Compile Include="Entities\LessonInfo.cs" />
     <Compile Include="Entities\Parity.cs" />
+    <Compile Include="Entities\Schedule.cs" />
     <Compile Include="Entities\StudyGroup.cs" />
     <Compile Include="Entities\Teacher.cs" />
     <Compile Include="Entities\User.cs" />

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Group, Week } from '../_models';
-import { NewDisciplineComponent, NewGroupComponent, NewTeacherComponent } from '../_components';
+import { NewDisciplineComponent, NewGroupComponent, NewTeacherComponent, WeekComponent } from '../_components';
 import { MatDialog } from '@angular/material/dialog';
 import { ListsService } from '../_services';
 import { Observable } from 'rxjs';
@@ -12,10 +12,11 @@ import { DataService } from '../_services/data.service';
   styleUrls: ['./director.component.css']
 })
 export class DirectorComponent implements OnInit {
-  private week: Observable<Week>;
+  @ViewChild(WeekComponent) weekComponent: WeekComponent;
+  private readonly week: Observable<Week>;
   private isParity = false;
   private groups: Observable<Array<Group>>;
-  private selectedId = 1;
+  private selectedGroup: Group;
 
   constructor(
     public dialog: MatDialog,
@@ -24,8 +25,6 @@ export class DirectorComponent implements OnInit {
   ) {
     this.groups = listsService.getGroups();
     this.week = dataService.getWeek();
-
-    this.groups.subscribe(() => this.selectedId = 1);
   }
 
   ngOnInit() {
@@ -74,5 +73,11 @@ export class DirectorComponent implements OnInit {
 
   onChangeGroup(event: Event) {
     // TODO update week
+    console.log(this.selectedGroup);
+  }
+
+  saveSchedule() {
+    const week = this.weekComponent.getWeek();
+    this.dataService.saveWeek(week, this.selectedGroup.key, this.isParity);
   }
 }

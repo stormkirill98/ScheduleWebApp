@@ -1,26 +1,26 @@
 <div class="edit-lesson-container">
   <div class="left-part">
     <label class="number">{{ number }}</label>
-    <input type="checkbox" class="checkbox" [(ngModel)]="isShow" >
+    <input type="checkbox" class="checkbox" [(ngModel)]="this.lesson.isExists" >
   </div>
-  <div class="right-part" *ngIf="isShow">
-    <select [(ngModel)]="lesson.discipline.id" class="discipline item">
-      <option *ngFor="let discipline of disciplines | async" [ngValue]="discipline.id">
+  <div class="right-part" *ngIf="this.lesson.isExists">
+    <select [(ngModel)]="lesson.discipline" class="discipline item">
+      <option *ngFor="let discipline of disciplines | async" [ngValue]="discipline">
         {{discipline.name}}
       </option>
     </select>
-    <select [(ngModel)]="lesson.disciplineType.id" class="type item">
-      <option *ngFor="let type of disciplineTypes | async" [ngValue]="type.id">
+    <select [(ngModel)]="lesson.disciplineType" class="type item">
+      <option *ngFor="let type of disciplineTypes | async" [ngValue]="type">
         {{type.type}}
       </option>
     </select>
-    <select [(ngModel)]="lesson.cabinet.id"  class="cabinet item">
-      <option *ngFor="let cabinet of cabinets | async" [ngValue]="cabinet.id">
+    <select [(ngModel)]="lesson.cabinet"  class="cabinet item">
+      <option *ngFor="let cabinet of cabinets | async" [ngValue]="cabinet">
         {{cabinet.number}}
       </option>
     </select>
-    <select [(ngModel)]="lesson.teacher.id"  class="teacher item">
-      <option *ngFor="let teacher of teachers | async" [ngValue]="teacher.id">
+    <select [(ngModel)]="lesson.teacher"  class="teacher item">
+      <option *ngFor="let teacher of teachers | async" [ngValue]="teacher">
         {{teacher.fullName}}
       </option>
     </select>

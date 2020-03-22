@@ -1,9 +1,9 @@
 export class Group {
-  id: number;
+  key: number;
   name: string;
 
-  constructor(id, name) {
-    this.id = id;
+  constructor(key, name) {
+    this.key = key;
     this.name = name;
   }
 }

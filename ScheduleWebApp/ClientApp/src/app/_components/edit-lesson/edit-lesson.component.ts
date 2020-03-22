@@ -14,7 +14,6 @@ export class EditLessonComponent implements OnInit {
   @Input() number: number;
   @Input() lesson: Lesson;
 
-  private isShow: boolean;
   private disciplines: Observable<Array<Discipline>>;
   private disciplineTypes: Observable<Array<DisciplineType>>;
   private cabinets: Observable<Array<Cabinet>>;
@@ -28,13 +27,9 @@ export class EditLessonComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.isShow = !!this.lesson;
-    if (!this.lesson) {
-      this.lesson = new Lesson();
-    }
   }
 
   clickCheckbox() {
-    this.isShow = !this.isShow;
+    this.lesson.isExists = !this.lesson.isExists;
   }
 }

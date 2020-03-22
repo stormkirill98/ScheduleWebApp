@@ -15,4 +15,8 @@ export class WeekComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  getWeek(): Week {
+    return this.week;
+  }
 }

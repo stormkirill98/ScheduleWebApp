@@ -4,7 +4,7 @@ const COUNT_LESSONS = 5;
 
 export class Day {
   private readonly number;
-  private readonly lessons: Array<Lesson> = [null, null, null, null, null];
+  private readonly lessons: Array<Lesson> = [new Lesson(), new Lesson(), new Lesson(), new Lesson(), new Lesson()];
 
   constructor(number: number) {
     this.number = number;
@@ -21,6 +21,10 @@ export class Day {
 
   getLesson(number: number): Lesson {
     return this.lessons[number];
+  }
+
+  getLessons(): Array<Lesson> {
+    return this.lessons;
   }
 
   getName(): string {

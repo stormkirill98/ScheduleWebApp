@@ -1,13 +1,13 @@
 export class Teacher {
-  id: number;
+  key: number;
   firstName: number;
   patronymic: number;
   lastName: number;
   cathedra: number;
   fullName: string;
 
-  constructor(id, firstName, patronymic, lastName, cathedra) {
-    this.id = id;
+  constructor(key, firstName, patronymic, lastName, cathedra) {
+    this.key = key;
     this.firstName = firstName;
     this.patronymic = patronymic;
     this.lastName = lastName;

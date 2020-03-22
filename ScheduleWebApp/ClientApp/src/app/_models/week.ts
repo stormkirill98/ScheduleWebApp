@@ -14,12 +14,4 @@ export class Week {
   getDays() {
     return this.days;
   }
-
-  public setDay(number: number, day: Day): boolean {
-    if (number >= COUNT_DAYS || number < 0) { return false; }
-
-    this.days[number] = day;
-    return true;
-  }
-
 }
