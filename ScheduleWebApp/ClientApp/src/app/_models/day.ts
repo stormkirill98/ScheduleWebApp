@@ -2,12 +2,23 @@ import { Lesson } from './lesson';
 
 const COUNT_LESSONS = 5;
 
+export interface IDay {
+  readonly number;
+  readonly lessons: Array<Lesson>;
+}
+
 export class Day {
   private readonly number;
   private readonly lessons: Array<Lesson> = [new Lesson(), new Lesson(), new Lesson(), new Lesson(), new Lesson()];
 
-  constructor(number: number) {
+  constructor(number: number, day?: IDay) {
     this.number = number;
+
+    if (day) {
+      day.lessons.forEach((lesson, i) => {
+        this.lessons[i] = new Lesson(lesson);
+      });
+    }
   }
 
   setLesson(number: number, lesson: Lesson): boolean {

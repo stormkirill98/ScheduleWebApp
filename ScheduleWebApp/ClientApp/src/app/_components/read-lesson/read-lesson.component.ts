@@ -1,21 +1,26 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Lesson } from '../../_models';
-import { DataService } from '../../_services/data.service';
-
-type Type = 'student' | 'teacher'; // TODO duplicate of govnokod
+import { DataService, Target } from '../../_services/data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: ' app-read-lesson',
   templateUrl: './read-lesson.component.html',
   styleUrls: ['./read-lesson.component.css']
 })
-export class ReadLessonComponent {
-  @Input() number: Type;
+export class ReadLessonComponent implements OnChanges {
+  @Input() number: number;
   @Input() lesson: Lesson;
 
-  private type: string;
+  private typeObservable: Observable<Target>;
+  private type: Target;
 
   constructor(private dataService: DataService) {
-    this.type = dataService.getTargetWeek();
+    this.typeObservable = dataService.getTargetWeek();
+    this.typeObservable.subscribe(value => this.type = value);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('read lesson change');
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { Group, Week } from '../_models';
 import { NewDisciplineComponent, NewGroupComponent, NewTeacherComponent, WeekComponent } from '../_components';
 import { MatDialog } from '@angular/material/dialog';
@@ -11,7 +11,7 @@ import { DataService } from '../_services/data.service';
   templateUrl: './director.component.html',
   styleUrls: ['./director.component.css']
 })
-export class DirectorComponent implements OnInit {
+export class DirectorComponent implements OnInit, OnChanges {
   @ViewChild(WeekComponent) weekComponent: WeekComponent;
   private readonly week: Observable<Week>;
   private isParity = false;
@@ -25,10 +25,15 @@ export class DirectorComponent implements OnInit {
   ) {
     this.groups = listsService.getGroups();
     this.week = dataService.getWeek();
+    this.week.subscribe((week) => console.log('change week'));
   }
 
   ngOnInit() {
     this.listsService.fetchForDirectorPage();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('director page onChanges');
   }
 
   openGroupCreating() {
@@ -68,12 +73,11 @@ export class DirectorComponent implements OnInit {
   }
 
   onChangeParity(event: Event) {
-    // TODO update week
+    this.dataService.fetchWeekForGroup(this.selectedGroup.key, this.isParity);
   }
 
   onChangeGroup(event: Event) {
-    // TODO update week
-    console.log(this.selectedGroup);
+    this.dataService.fetchWeekForGroup(this.selectedGroup.key, this.isParity);
   }
 
   saveSchedule() {

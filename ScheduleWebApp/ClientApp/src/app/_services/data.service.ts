@@ -3,10 +3,11 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Week } from '../_models';
+import { IWeek } from '../_models/week';
 
-type Target = 'student' | 'teacher'; // TODO govnokod
+export type Target = 'student' | 'teacher'; // TODO govnokod
 
-interface Obj {
+interface Schedule {
   DayOfWeekID: number;
   ParityID: number;
   LessonID: number;
@@ -31,17 +32,17 @@ export class DataService {
     return this.week.asObservable();
   }
 
-  getTargetWeek(): string {
-    return this.targetWeek.value;
+  getTargetWeek(): Observable<Target> {
+    return this.targetWeek.asObservable();
   }
 
   saveWeek(week: Week, groupId: number, isParity: boolean): void {
-    const schedule = Array<Obj>();
+    const schedule = Array<Schedule>();
 
     week.getDays().forEach((day, dayId) => {
       day.getLessons().forEach((lesson, lessonId) => {
         if (lesson.isExists) {
-          const obj: Obj = {
+          const obj: Schedule = {
             DayOfWeekID: dayId + 1,
             ParityID: isParity ? 1 : 2,
             LessonID: lessonId + 1,
@@ -57,8 +58,22 @@ export class DataService {
       });
     });
 
-    this.http.post<Array<Obj>>(`${environment.apiUrl}/data/schedule`, schedule).subscribe(
-      savedWeek => alert('Текущая неделя сохранена')
+    this.http.post<Array<Schedule>>(`${environment.apiUrl}/data/schedule`, schedule).subscribe(
+      () => alert('Текущая неделя сохранена')
     );
+  }
+
+  fetchWeekForGroup(groupId: number, isParity: boolean) {
+    this.http.get<IWeek>(`${environment.apiUrl}/data/group_schedule/${groupId}/${isParity}`).subscribe(
+      week => this.week.next(new Week(week))
+    );
+    this.targetWeek.next('student');
+  }
+
+  fetchWeekForTeacher(teacherId: number, isParity: boolean) {
+    this.http.get<IWeek>(`${environment.apiUrl}/data/teacher_schedule/${teacherId}/${isParity}`).subscribe(
+      week => this.week.next(new Week(week))
+    );
+    this.targetWeek.next('teacher');
   }
 }

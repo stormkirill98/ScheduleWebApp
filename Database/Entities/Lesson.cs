@@ -1,21 +1,34 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Data;
 
 namespace Database.Entities
 {
     public class Lesson
     {
-        [Key]
-        public int Key { get; set; }
-        public int Number { get; set; }
-        public string StartTime { get; set; }
-        public string EndTime { get; set; }
+        public bool isExists { get; set; }
+        public Discipline Discipline { get; set; }
+        public DisciplineType DisciplineType { get; set; }
+        public Cabinet Cabinet { get; set; }
+        public Teacher Teacher { get; set; }
+        public StudyGroup Group { get; set; }
 
         public Lesson() {
-            Key = 0;
-            Number = 0;
-            StartTime = "";
-            EndTime = "";
+            isExists = false;
         }
+
+        public Lesson(
+            Discipline discipline,
+            DisciplineType disciplineType,
+            Cabinet cabinet, 
+            Teacher teacher,
+            StudyGroup studyGroup
+        ) {
+            isExists = true;
+            Discipline = discipline;
+            DisciplineType = disciplineType;
+            Cabinet = cabinet;
+            Teacher = teacher;
+            Group = studyGroup;
+        }
+
     }
 }

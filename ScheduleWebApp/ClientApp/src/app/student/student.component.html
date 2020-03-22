@@ -2,8 +2,8 @@
   <div class="head">
     <div>
       <label for="group">Группа:</label>
-      <select id="group" [(ngModel)]="selectedId" (change)="onChangeGroup($event)">
-        <option *ngFor="let group of groups | async" [ngValue]="group.key">
+      <select id="group" [(ngModel)]="selectedGroup" (change)="onChangeGroup($event)">
+        <option *ngFor="let group of groups | async" [ngValue]="group">
           {{group.name}}
         </option>
       </select>

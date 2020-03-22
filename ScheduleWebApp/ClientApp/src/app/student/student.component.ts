@@ -14,7 +14,7 @@ export class StudentComponent implements OnInit {
   private week: Observable<Week>;
   private groups: Observable<Array<Group>>;
   private isParity = false;
-  private selectedId = 1;
+  private selectedGroup: Group;
 
   constructor(
     private listsService: ListsService,
@@ -22,8 +22,6 @@ export class StudentComponent implements OnInit {
   ) {
     this.groups = listsService.getGroups();
     this.week = dataService.getWeek();
-
-    this.groups.subscribe(() => this.selectedId = 1);
   }
 
   ngOnInit(): void {
@@ -31,10 +29,10 @@ export class StudentComponent implements OnInit {
   }
 
   onChangeParity(event: MatCheckboxChange) {
-    // TODO update week
+    this.dataService.fetchWeekForGroup(this.selectedGroup.key, this.isParity);
   }
 
   onChangeGroup(event: Event) {
-    // TODO update week
+    this.dataService.fetchWeekForGroup(this.selectedGroup.key, this.isParity);
   }
 }

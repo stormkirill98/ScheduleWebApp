@@ -25,5 +25,19 @@ namespace ScheduleWebApp.Controllers
             _dataService.SaveSchedule(schedules);
             return Ok();
         }
+        
+        [HttpGet("group_schedule/{groupId}/{isParity}")]
+        public IActionResult GetGroupSchedule(int groupId, bool isParity)
+        {
+            Week week = _dataService.GetGroupSchedule(groupId, isParity);
+            return Ok(week);
+        }
+        
+        [HttpGet("teacher_schedule/{teacherId}/{isParity}")]
+        public IActionResult GetTeacherSchedule(int teacherId, bool isParity)
+        {
+            Week week = _dataService.GetTeacherSchedule(teacherId, isParity);
+            return Ok(week);
+        }
     }
 }

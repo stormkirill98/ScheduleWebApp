@@ -14,7 +14,7 @@ export class TeacherComponent implements OnInit {
   private week: Observable<Week>;
   private isParity = false;
   private teachers: Observable<Array<Teacher>>;
-  private selectedId = 1;
+  private selectedTeacher: Teacher;
 
   constructor(
     private listsService: ListsService,
@@ -29,10 +29,10 @@ export class TeacherComponent implements OnInit {
   }
 
   onChangeParity(event: MatCheckboxChange) {
-    // TODO update week
+    this.dataService.fetchWeekForTeacher(this.selectedTeacher.key, this.isParity);
   }
 
   onChangeTeacher(event: Event) {
-    // TODO update week
+    this.dataService.fetchWeekForTeacher(this.selectedTeacher.key, this.isParity);
   }
 }
