@@ -4,7 +4,7 @@ namespace Database.Entities
 {
     public class DaySchedule
     {
-        public List<LessonInfo> Lessons { get; }
+        public List<LessonInfo> Lessons { get; set; }
 
         public DaySchedule()
         {

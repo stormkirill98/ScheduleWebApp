@@ -27,7 +27,7 @@ export class DirectorComponent implements OnInit {
   }
 
   ngOnInit() {
-    // TODO make fetch data for inputs
+    this.listsService.fetchForDirectorPage();
   }
 
   openGroupCreating() {

@@ -1,18 +1,13 @@
-﻿using System.Data;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Data;
 
 namespace Database.Entities
 {
-    public struct DayOfWeek
+    public class DayOfWeek
     {
-        public int Id { get; }
-        public string Day { get; }
-        public string Abbreviation { get; }
-
-        public DayOfWeek(DataRow row)
-        {
-            Id = (int)row["Key"];
-            Day = (string)row["DayOfWeek"];
-            Abbreviation = (string)row["Abbreviation"];
-        }
+        [Key]
+        public int Key { get; set; }
+        public string Day { get; set; }
+        public string Abbreviation { get; set; }
     }
 }

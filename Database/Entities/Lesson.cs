@@ -1,20 +1,21 @@
-﻿using System.Data;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Data;
 
 namespace Database.Entities
 {
-    public struct Lesson
+    public class Lesson
     {
-        public int Id { get; }
+        [Key]
+        public int Key { get; set; }
         public int Number { get; set; }
         public string StartTime { get; set; }
         public string EndTime { get; set; }
 
-        public Lesson(DataRow row)
-        {
-            Id = (int)row["Key"];
-            Number = (int)row["Number"];
-            StartTime = (string)row["StartTime"];
-            EndTime = (string)row["EndTime"];
+        public Lesson() {
+            Key = 0;
+            Number = 0;
+            StartTime = "";
+            EndTime = "";
         }
     }
 }

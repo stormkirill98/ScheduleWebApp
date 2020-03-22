@@ -1,8 +1,11 @@
-﻿namespace Database.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Database.Entities
 {
     public class LessonInfo
     {
-        public int Id { get; }
+        [Key]
+        public int Key { get; set; }
         public Lesson Lesson { get; set; }
         public Discipline Discipline { get; set; }
         public DisciplineType DisciplineType { get; set; }
@@ -13,11 +16,14 @@
 
         public LessonInfo() { }
 
-        public LessonInfo(Discipline discipline, DisciplineType disciplineType,
-            Cabinet cabinet, Teacher teacher,
-            Lesson lesson = new Lesson(),
-            StudyGroup studyGroup = new StudyGroup())
-        {
+        public LessonInfo(
+            Discipline discipline,
+            DisciplineType disciplineType,
+            Cabinet cabinet, 
+            Teacher teacher,
+            Lesson lesson,
+            StudyGroup studyGroup
+        ) {
             Lesson = lesson;
             Discipline = discipline;
             DisciplineType = disciplineType;
@@ -26,13 +32,17 @@
             StudyGroup = studyGroup;
         }
 
-        public LessonInfo(int id, Discipline discipline, DisciplineType disciplineType,
-            Cabinet cabinet, Teacher teacher,
-            Lesson lesson = new Lesson(),
-            StudyGroup studyGroup = new StudyGroup())
-            : this(discipline, disciplineType, cabinet, teacher, lesson, studyGroup)
+        public LessonInfo(
+            int id, 
+            Discipline discipline, 
+            DisciplineType disciplineType,
+            Cabinet cabinet, 
+            Teacher teacher,
+            Lesson lesson,
+            StudyGroup studyGroup
+        ) : this(discipline, disciplineType, cabinet, teacher, lesson, studyGroup)
         {
-            Id = id;
+            Key = id;
         }
     }
 }

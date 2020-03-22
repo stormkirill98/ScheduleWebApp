@@ -15,7 +15,6 @@ using ScheduleWebApp.Services;
 
 namespace ScheduleWebApp.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class UsersController : ControllerBase

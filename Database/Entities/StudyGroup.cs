@@ -1,21 +1,12 @@
-﻿using System.Data;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Data;
 
 namespace Database.Entities
 {
-    public struct StudyGroup
+    public class StudyGroup
     {
-        public int Id { get; }
-        public string Name { get; }
-
-        public StudyGroup(DataRow row)
-        {
-            Id = (int)row["Key"];
-            Name = (string)row["Group"];
-        }
-
-        public StudyGroup(string name) : this()
-        {
-            Name = name;
-        }
+        [Key]
+        public int Key { get; set; }
+        public string Name { get; set; }
     }
 }

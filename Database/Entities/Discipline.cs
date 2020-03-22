@@ -1,21 +1,12 @@
-﻿using System.Data;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Data;
 
 namespace Database.Entities
 {
-    public struct Discipline
+    public class Discipline
     {
-        public int Id { get; }
+        [Key]
+        public int Key { get; set; }
         public string Name { get; set; }
-
-        public Discipline(DataRow row)
-        {
-            Id = (int)row["Key"];
-            Name = (string)row["Discipline"];
-        }
-
-        public Discipline(string name) : this()
-        {
-            Name = name;
-        }
     }
 }

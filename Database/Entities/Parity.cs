@@ -1,22 +1,12 @@
-﻿using System.Data;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Data;
 
 namespace Database.Entities
 {
-    public struct Parity
+    public class Parity
     {
-        public int Id { get; }
-        public string Week { get; }
-
-        public Parity(DataRow row)
-        {
-            Id = (int)row["Key"];
-            Week = (string)row["Week"];
-        }
-
-        public Parity(int id, string week)
-        {
-            Id = id;
-            Week = week;
-        }
+        [Key]
+        public int Key { get; set; }
+        public string Week { get; set; }
     }
 }

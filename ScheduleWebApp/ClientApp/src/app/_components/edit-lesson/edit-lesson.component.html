@@ -11,7 +11,7 @@
     </select>
     <select [(ngModel)]="lesson.disciplineType.id" class="type item">
       <option *ngFor="let type of disciplineTypes | async" [ngValue]="type.id">
-        {{type.name}}
+        {{type.type}}
       </option>
     </select>
     <select [(ngModel)]="lesson.cabinet.id"  class="cabinet item">
@@ -21,7 +21,7 @@
     </select>
     <select [(ngModel)]="lesson.teacher.id"  class="teacher item">
       <option *ngFor="let teacher of teachers | async" [ngValue]="teacher.id">
-        {{teacher.getFullName()}}
+        {{teacher.fullName}}
       </option>
     </select>
   </div>

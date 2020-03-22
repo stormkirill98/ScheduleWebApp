@@ -1,16 +1,12 @@
-﻿using System.Data;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Data;
 
 namespace Database.Entities
 {
-    public struct DisciplineType
+    public class DisciplineType
     {
-        public int Id { get; }
-        public string Type { get; }
-
-        public DisciplineType(DataRow row)
-        {
-            Id = (int)row["Key"];
-            Type = (string)row["Type"];
-        }
+        [Key]
+        public int Key { get; set; }
+        public string Type { get; set; }
     }
 }

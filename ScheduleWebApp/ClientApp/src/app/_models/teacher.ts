@@ -4,6 +4,7 @@ export class Teacher {
   patronymic: number;
   lastName: number;
   cathedra: number;
+  fullName: string;
 
   constructor(id, firstName, patronymic, lastName, cathedra) {
     this.id = id;

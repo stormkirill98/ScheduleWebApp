@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Cabinet, Discipline, DisciplineType, Group, Teacher } from '../_models';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { map } from 'rxjs/operators';
+import { Lists } from '../_models/lists';
 
 @Injectable({
   providedIn: 'root'
@@ -32,40 +36,7 @@ export class ListsService {
     return this.groups.asObservable();
   }
 
-  constructor() {
-    this.disciplines.next([
-      new Discipline(1, 'Программирование'),
-      new Discipline(2, 'Анализ данных'),
-      new Discipline(3, 'Дискретная математика'),
-      new Discipline(4, 'Математический анализ')
-    ]);
-
-    this.disciplineTypes.next([
-      new DisciplineType(1, 'Лекция'),
-      new DisciplineType(2, 'Семинар')
-    ]);
-
-    this.cabinets.next([
-      new Cabinet(1, 215),
-      new Cabinet(2, 312),
-      new Cabinet(3, 219),
-      new Cabinet(4, 220)
-    ]);
-
-    this.teachers.next([
-      new Teacher(1, 'Владимир', 'Васильевич', 'Васильев', 'Дискретной математики'),
-      new Teacher(2, 'Горбунов', 'Андрей', 'Валерьевич', 'Дискретной математики'),
-      new Teacher(3, 'Короткин', 'Алексей', 'Алексеевич', 'Дискретной математики'),
-      new Teacher(4, 'Галина', 'Владимировна', 'Шабаршина', 'Дискретной математики')
-    ]);
-
-    this.groups.next([
-      new Group(1, 'ИВТ-41БО'),
-      new Group(2, 'ИВТ-42БО'),
-      new Group(3, 'ИВТ-11БО'),
-      new Group(4, 'ИВТ-21БО'),
-      new Group(5, 'ИВТ-31БО')
-    ]);
+  constructor(private http: HttpClient) {
   }
 
   addGroup(group: Group) {
@@ -89,11 +60,14 @@ export class ListsService {
     this.disciplines.next(oldList);
   }
 
-  private fetchData() {
-    // TODO realize getting from server when open director page
-  }
-
-  updateData() {
-    this.fetchData();
+  fetchForDirectorPage() {
+    this.http.get<Lists>(`${environment.apiUrl}/lists`).subscribe(
+      lists => {
+        this.disciplines.next(lists.disciplines);
+        this.disciplineTypes.next(lists.disciplineTypes);
+        this.cabinets.next(lists.cabinets);
+        this.teachers.next(lists.teachers);
+        this.groups.next(lists.groups);
+      });
   }
 }

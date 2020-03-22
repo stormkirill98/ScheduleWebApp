@@ -1,9 +1,9 @@
 export class DisciplineType {
   id: number;
-  name: string;
+  type: string;
 
-  constructor(id, name) {
+  constructor(id, type) {
     this.id = id;
-    this.name = name;
+    this.type = type;
   }
 }
