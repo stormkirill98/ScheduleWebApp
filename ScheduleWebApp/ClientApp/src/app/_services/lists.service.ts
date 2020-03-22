@@ -40,24 +40,33 @@ export class ListsService {
   }
 
   addGroup(group: Group) {
-    // TODO save group on server, get it and add to list
-    const oldList = this.groups.value;
-    oldList.push(group);
-    this.groups.next(oldList);
+    this.http.post<Group>(`${environment.apiUrl}/lists/group`, group).subscribe(
+      savedGroup => {
+        const oldList = this.groups.value;
+        oldList.push(savedGroup);
+        this.groups.next(oldList);
+      }
+    );
   }
 
   addTeacher(teacher: Teacher) {
-    // TODO save teacher on server, get it and add to list
-    const oldList = this.teachers.value;
-    oldList.push(teacher);
-    this.teachers.next(oldList);
+    this.http.post<Teacher>(`${environment.apiUrl}/lists/teacher`, teacher).subscribe(
+      savedTeacher => {
+        const oldList = this.teachers.value;
+        oldList.push(savedTeacher);
+        this.teachers.next(oldList);
+      }
+    );
   }
 
   addDiscipline(discipline: Discipline) {
-    // TODO save discipline on server, get it and add to list
-    const oldList = this.disciplines.value;
-    oldList.push(discipline);
-    this.disciplines.next(oldList);
+    this.http.post<Discipline>(`${environment.apiUrl}/lists/discipline`, discipline).subscribe(
+      savedDiscipline => {
+        const oldList = this.disciplines.value;
+        oldList.push(savedDiscipline);
+        this.disciplines.next(oldList);
+      }
+    );
   }
 
   fetchForDirectorPage() {
@@ -68,6 +77,23 @@ export class ListsService {
         this.cabinets.next(lists.cabinets);
         this.teachers.next(lists.teachers);
         this.groups.next(lists.groups);
-      });
+      }
+    );
+  }
+
+  fetchGroups() {
+    this.http.get<Array<Group>>(`${environment.apiUrl}/lists/groups`).subscribe(
+      groups => {
+        this.groups.next(groups);
+      }
+    );
+  }
+
+  fetchTeachers() {
+    this.http.get<Array<Teacher>>(`${environment.apiUrl}/lists/teachers`).subscribe(
+      teachers => {
+        this.teachers.next(teachers);
+      }
+    );
   }
 }

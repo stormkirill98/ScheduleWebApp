@@ -13,8 +13,8 @@
     <label class="cabinet item" title="{{lesson.cabinet.number}}">
       {{ lesson.cabinet.number }}
     </label>
-    <label *ngIf="lesson.teacher && type  === 'student'" class="teacher item" title="{{lesson.teacher.getFullName()}}">
-      {{ lesson.teacher.getFullName() }}
+    <label *ngIf="lesson.teacher && type  === 'student'" class="teacher item" title="{{lesson.teacher.fullName}}">
+      {{ lesson.teacher.fullName }}
     </label>
     <label *ngIf="lesson.group && type === 'teacher'" class="teacher item" title="{{lesson.group.name}}">
       {{ lesson.group.name }}

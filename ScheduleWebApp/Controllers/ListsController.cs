@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Database.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -47,6 +48,27 @@ namespace ScheduleWebApp.Controllers
         public IActionResult GetGroups()
         {
             return Ok(_listsService.GetStudyGroups());
+        }
+
+        [HttpPost("teacher")]
+        public IActionResult SaveTeacher([FromBody] Teacher teacher)
+        {
+            _listsService.AddTeacher(teacher);
+            return Ok(teacher);
+        }
+
+        [HttpPost("group")]
+        public IActionResult SaveGroup([FromBody] StudyGroup group)
+        {
+            _listsService.AddGroup(group);
+            return Ok(group);
+        }
+
+        [HttpPost("discipline")]
+        public IActionResult SaveDiscipline([FromBody] Discipline discipline)
+        {
+            _listsService.AddDiscipline(discipline);
+            return Ok(discipline);
         }
     }
 }

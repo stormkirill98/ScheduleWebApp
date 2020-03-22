@@ -24,6 +24,8 @@ export class DirectorComponent implements OnInit {
   ) {
     this.groups = listsService.getGroups();
     this.week = dataService.getWeek();
+
+    this.groups.subscribe(() => this.selectedId = 1);
   }
 
   ngOnInit() {

@@ -25,6 +25,7 @@ export class TeacherComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.listsService.fetchTeachers();
   }
 
   onChangeParity(event: MatCheckboxChange) {

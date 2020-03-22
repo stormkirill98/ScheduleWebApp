@@ -4,7 +4,7 @@
       <label for="teacher">Преподаватель:</label>
       <select id="teacher" [(ngModel)]="selectedId" (change)="onChangeTeacher($event)">
         <option *ngFor="let teacher of teachers | async" [ngValue]="teacher.id">
-          {{teacher.getFullName()}}
+          {{teacher.fullName}}
         </option>
       </select>
     </div>

@@ -12,8 +12,8 @@ import { DataService } from '../_services/data.service';
 })
 export class StudentComponent implements OnInit {
   private week: Observable<Week>;
-  private isParity = false;
   private groups: Observable<Array<Group>>;
+  private isParity = false;
   private selectedId = 1;
 
   constructor(
@@ -22,10 +22,12 @@ export class StudentComponent implements OnInit {
   ) {
     this.groups = listsService.getGroups();
     this.week = dataService.getWeek();
+
+    this.groups.subscribe(() => this.selectedId = 1);
   }
 
   ngOnInit(): void {
-    // TODO load week
+    this.listsService.fetchGroups();
   }
 
   onChangeParity(event: MatCheckboxChange) {
