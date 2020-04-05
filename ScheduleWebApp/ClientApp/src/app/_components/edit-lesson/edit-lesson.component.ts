@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { ListsService } from '../../_services';
 import { Observable } from 'rxjs';
@@ -10,7 +10,7 @@ import { Cabinet, Discipline, DisciplineType, Lesson, Teacher } from '../../_mod
   templateUrl: './edit-lesson.component.html',
   styleUrls: ['./edit-lesson.component.css']
 })
-export class EditLessonComponent implements OnInit, OnChanges {
+export class EditLessonComponent {
   @Input() private number: number;
   @Input() private lesson: Lesson;
 
@@ -24,16 +24,5 @@ export class EditLessonComponent implements OnInit, OnChanges {
     this.disciplineTypes = listsService.getDisciplineTypes();
     this.cabinets = listsService.getCabinets();
     this.teachers = listsService.getTeachers();
-  }
-
-  ngOnInit(): void {
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('edit lesson on changes');
-  }
-
-  clickCheckbox() {
-    this.lesson.isExists = !this.lesson.isExists;
   }
 }
