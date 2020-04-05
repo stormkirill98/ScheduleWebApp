@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Teacher } from '../../_models';
@@ -8,7 +8,7 @@ import { Teacher } from '../../_models';
   templateUrl: './new-teacher.component.html',
   styleUrls: ['./new-teacher.component.css']
 })
-export class NewTeacherComponent implements OnInit {
+export class NewTeacherComponent {
   private firstName: FormControl;
   private patronymic: FormControl;
   private lastName: FormControl;
@@ -19,9 +19,6 @@ export class NewTeacherComponent implements OnInit {
     this.patronymic = new FormControl();
     this.lastName = new FormControl();
     this.cathedra = new FormControl();
-  }
-
-  ngOnInit(): void {
   }
 
   onCancel() {

@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Day } from '../../_models';
 
 @Component({
@@ -6,16 +6,7 @@ import { Day } from '../../_models';
   templateUrl: './day.component.html',
   styleUrls: ['./day.component.css']
 })
-export class DayComponent implements OnInit, OnChanges {
+export class DayComponent {
   @Input() day: Day;
   @Input() isRead: boolean;
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-  }
 }

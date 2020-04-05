@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Week } from '../../_models';
 
 @Component({
@@ -7,14 +6,9 @@ import { Week } from '../../_models';
   templateUrl: './week.component.html',
   styleUrls: ['./week.component.css']
 })
-export class WeekComponent implements OnInit {
+export class WeekComponent {
   @Input() isRead: boolean;
   @Input() week: Week;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
   getWeek(): Week {
     return this.week;

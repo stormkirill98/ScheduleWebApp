@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FormControl } from '@angular/forms';
 import { Group } from '../../_models';
@@ -8,14 +8,11 @@ import { Group } from '../../_models';
   templateUrl: './new-group.component.html',
   styleUrls: ['./new-group.component.css']
 })
-export class NewGroupComponent implements OnInit {
+export class NewGroupComponent {
   private name: FormControl;
 
   constructor(public dialogRef: MatDialogRef<NewGroupComponent>) {
     this.name = new FormControl();
-  }
-
-  ngOnInit() {
   }
 
   onCancel() {
@@ -23,7 +20,9 @@ export class NewGroupComponent implements OnInit {
   }
 
   onCreate() {
-    if (!this.name.valid) { return; }
+    if (!this.name.valid) {
+      return;
+    }
 
     this.dialogRef.close({
       group: new Group(null, this.name.value)

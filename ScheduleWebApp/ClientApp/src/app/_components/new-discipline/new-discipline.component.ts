@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Discipline } from '../../_models';
@@ -8,14 +8,11 @@ import { Discipline } from '../../_models';
   templateUrl: './new-discipline.component.html',
   styleUrls: ['./new-discipline.component.css']
 })
-export class NewDisciplineComponent implements OnInit {
+export class NewDisciplineComponent {
   private name: FormControl;
 
   constructor(public dialogRef: MatDialogRef<NewDisciplineComponent>) {
     this.name = new FormControl();
-  }
-
-  ngOnInit() {
   }
 
   onCancel() {
