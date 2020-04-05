@@ -39,7 +39,7 @@ export class UserRoleComponent implements OnInit {
 
     this.userService.update(this.selectedUser).subscribe(() => {
       this.fetchUsers();
-      alert('Role is changing');
+      alert('Role is changed');
     });
   }
 }
