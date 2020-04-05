@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Изменить роль</h1>
+<div mat-dialog-content>
+  <mat-form-field class="user-picker">
+    <input type="text"
+           placeholder="Выберите пользователя"
+           aria-label="Number"
+           matInput
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectUser($event)">
+      <mat-option *ngFor="let user of users" [value]="user.username">
+        <span>{{user.username}}</span>
+        <small> {{user.fullName}}</small>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-form-field class="role-picker">
+    <mat-label>Роль</mat-label>
+    <mat-select [(ngModel)]="selectedUser.role">
+      <mat-option *ngFor="let role of roles" [value]="role">
+        {{role}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button type="button" (click)="change()">Изменить</button>
+</div>

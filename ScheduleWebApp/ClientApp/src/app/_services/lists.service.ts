@@ -3,7 +3,6 @@ import { Cabinet, Discipline, DisciplineType, Group, Teacher } from '../_models'
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { map } from 'rxjs/operators';
 import { Lists } from '../_models/lists';
 
 @Injectable({

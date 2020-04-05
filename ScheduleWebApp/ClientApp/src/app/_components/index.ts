@@ -5,3 +5,4 @@ export * from './week/week.component';
 export * from './new-group/new-group.component';
 export * from './new-teacher/new-teacher.component';
 export * from './new-discipline/new-discipline.component';
+export * from './user-role/user-role.component';

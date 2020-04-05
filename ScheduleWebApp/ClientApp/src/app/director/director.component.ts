@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Group, Week } from '../_models';
-import { NewDisciplineComponent, NewGroupComponent, NewTeacherComponent, WeekComponent } from '../_components';
+import { NewDisciplineComponent, NewGroupComponent, NewTeacherComponent, UserRoleComponent, WeekComponent } from '../_components';
 import { MatDialog } from '@angular/material/dialog';
 import { ListsService } from '../_services';
 import { Observable } from 'rxjs';
@@ -78,5 +78,9 @@ export class DirectorComponent implements OnInit {
   saveSchedule() {
     const week = this.weekComponent.getWeek();
     this.dataService.saveWeek(week, this.selectedGroup.key, this.isParity);
+  }
+
+  openRoleChanging() {
+    this.dialog.open(UserRoleComponent);
   }
 }

@@ -23,6 +23,7 @@ import { WeekComponent } from './_components';
 import { NewGroupComponent } from './_components';
 import { NewTeacherComponent } from './_components';
 import { NewDisciplineComponent } from './_components';
+import { UserRoleComponent } from './_components';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -35,6 +36,8 @@ import { RegisterComponent } from './register';
 import { DirectorComponent } from './director/director.component';
 import { TeacherComponent } from './teacher/teacher.component';
 import { StudentComponent } from './student/student.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   imports: [
@@ -47,7 +50,9 @@ import { StudentComponent } from './student/student.component';
     MatDialogModule,
     MatButtonModule,
     MatInputModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatAutocompleteModule,
+    MatSelectModule
   ],
   declarations: [
     AppComponent,
@@ -67,7 +72,8 @@ import { StudentComponent } from './student/student.component';
     WeekComponent,
     NewGroupComponent,
     NewTeacherComponent,
-    NewDisciplineComponent
+    NewDisciplineComponent,
+    UserRoleComponent
   ],
   providers: [
     AuthGuard,
