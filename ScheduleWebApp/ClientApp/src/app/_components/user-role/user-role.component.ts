@@ -32,8 +32,14 @@ export class UserRoleComponent implements OnInit {
   }
 
   change() {
+    if (!this.selectedUser.role) {
+      alert('Select role');
+      return;
+    }
+
     this.userService.update(this.selectedUser).subscribe(() => {
       this.fetchUsers();
+      alert('Role is changing');
     });
   }
 }

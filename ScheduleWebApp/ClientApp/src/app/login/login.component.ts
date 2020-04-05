@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AlertService, AuthenticationService } from '../_services';
+import { User } from '../_models';
 
 @Component({templateUrl: 'login.component.html'})
 export class LoginComponent implements OnInit {
@@ -52,11 +53,21 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate([this.returnUrl]);
+          this.router.navigate([this.getNavigatedUrl(data)]);
         },
         error => {
           this.alertService.error(error);
+          alert('Неправильный логин или пароль');
           this.loading = false;
         });
+  }
+
+  private getNavigatedUrl(user: User): string {
+    switch (user.role) {
+      case('Директор'): return '/director';
+      case('Учитель'): return '/teacher';
+      case('Студент'): return 'student';
+      default: return '/';
+    }
   }
 }

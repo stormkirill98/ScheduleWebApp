@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
             username: ['', Validators.required],
-            password: ['', [Validators.required, Validators.minLength(6)]]
+            password: ['', [Validators.required, Validators.minLength(5)]]
         });
     }
 
@@ -47,6 +47,7 @@ export class RegisterComponent implements OnInit {
                 },
                 error => {
                     this.alertService.error(error);
+                    alert('Пользователь с таким именем уже существует');
                     this.loading = false;
                 });
     }
