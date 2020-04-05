@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Group, Week } from '../_models';
 import { NewDisciplineComponent, NewGroupComponent, NewTeacherComponent, WeekComponent } from '../_components';
 import { MatDialog } from '@angular/material/dialog';
@@ -11,7 +11,7 @@ import { DataService } from '../_services/data.service';
   templateUrl: './director.component.html',
   styleUrls: ['./director.component.css']
 })
-export class DirectorComponent implements OnInit, OnChanges {
+export class DirectorComponent implements OnInit {
   @ViewChild(WeekComponent) weekComponent: WeekComponent;
   private readonly week: Observable<Week>;
   private isParity = false;
@@ -25,15 +25,10 @@ export class DirectorComponent implements OnInit, OnChanges {
   ) {
     this.groups = listsService.getGroups();
     this.week = dataService.getWeek();
-    this.week.subscribe((week) => console.log('change week'));
   }
 
   ngOnInit() {
     this.listsService.fetchForDirectorPage();
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('director page onChanges');
   }
 
   openGroupCreating() {

@@ -5,6 +5,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .page-container {
   margin: 10px 10px 0 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .parity-week {

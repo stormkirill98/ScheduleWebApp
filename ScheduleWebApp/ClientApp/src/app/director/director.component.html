@@ -18,8 +18,8 @@
       <button (click)="openGroupCreating()">Новая группа</button>
       <button (click)="openTeacherCreating()">Новый учитель</button>
       <button (click)="openDisciplineCreating()">Новая дисциплина</button>
-      <button (click)="saveSchedule()">Сохранить расписание</button>
     </div>
   </div>
   <app-week isRead="{{false}}" [week]="week | async" ></app-week>
+  <button class="save-button" (click)="saveSchedule()">Сохранить расписание</button>
 </div>
